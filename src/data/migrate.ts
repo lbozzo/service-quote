@@ -16,12 +16,9 @@ const main = async () => {
     console.log('Migration complete!');
   } catch (error) {
     console.log(error);
+    process.exit(1);
   }
   process.exit(0);
 };
 
-main().catch((e) => {
-  console.error('Migration failed');
-  console.error(e);
-  process.exit(1);
-});
+main();
