@@ -17,6 +17,9 @@ jobs:
       - run: npm ci
       - run: npm run db:generate
       - run: npm run db:migrate
+        env:
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
   deploy:
     needs: migrate
     runs-on: ubuntu-latest
