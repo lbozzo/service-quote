@@ -15,6 +15,13 @@
       "when": 1714273363788,
       "tag": "0001_steady_the_twelve",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1714346618320,
+      "tag": "0002_daily_mercury",
+      "breakpoints": true
     }
   ]
 }
