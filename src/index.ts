@@ -13,12 +13,13 @@ const app = new Hono<{ Bindings: Env }>();
 app.get('/random', async (c) => {
   const data = createDbConnection(c.env);
 
-  const result = data.query.quote.findFirst({
+  const result = await data.query.quote.findFirst({
     offset: Math.floor(
       Math.random() *
-        (await data.select({ count: count() }).from(quote))[0].count
+        (
+          await data.select({ count: count() }).from(quote)
+        )[0].count
     ),
-    with: { author: true },
   });
   if (!result) {
     return c.notFound();
