@@ -1,12 +1,12 @@
-import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/libsql';
 import { createClient } from '@libsql/client/web';
+import * as schema from './schema';
+import { Env } from '..';
 
-config({ path: '.dev.vars' });
+const turso = ({ TURSO_AUTH_TOKEN, TURSO_DATABASE_URL }: Env) =>
+  createClient({
+    url: TURSO_DATABASE_URL,
+    authToken: TURSO_AUTH_TOKEN,
+  });
 
-const turso = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN,
-});
-
-export const data = drizzle(turso);
+export const createDbConnection = (env: Env) => drizzle(turso(env), { schema });

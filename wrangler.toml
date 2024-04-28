@@ -1,4 +1,4 @@
-name = "service-quote"
+name = "quote"
 compatibility_date = "2023-12-01"
 main = "src/index.ts"
 minify = true
