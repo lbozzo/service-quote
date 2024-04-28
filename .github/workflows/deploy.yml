@@ -17,6 +17,9 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run db:introspect
+        env:
+          TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+          TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
       - run: npm run db:migrate
         env:
           TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
