@@ -4,7 +4,7 @@
     "deploy": "wrangler deploy --minify src/index.ts",
     "db:generate": "drizzle-kit generate:sqlite",
     "db:push": "drizzle-kit push:sqlite",
-    "db:migrate": "tsx ./src/data/migrate.ts",
+    "db:migrate": "tsc ./src/data/migrate.ts",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "@cloudflare/workers-types": "^4.20240403.0",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.20.17",
+    "typescript": "^5.4.5",
     "wrangler": "^3.47.0"
   }
 }
