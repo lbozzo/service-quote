@@ -4,6 +4,7 @@
     "deploy": "wrangler deploy --minify src/index.ts",
     "db:generate": "drizzle-kit generate:sqlite",
     "db:push": "drizzle-kit push:sqlite",
+    "db:introspect": "drizzle-kit introspect:sqlite",
     "db:migrate": "tsx ./src/data/migrate.ts",
     "db:studio": "drizzle-kit studio"
   },
