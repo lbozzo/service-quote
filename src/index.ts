@@ -14,6 +14,9 @@ app.get('/random', async (c) => {
   const data = createDbConnection(c.env);
 
   const result = await data.query.quote.findFirst({
+    with: {
+      author: true,
+    },
     offset: Math.floor(
       Math.random() *
         (
