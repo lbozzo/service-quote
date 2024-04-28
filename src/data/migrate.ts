@@ -1,3 +1,5 @@
+// migrate.ts
+
 import { config } from 'dotenv';
 import { migrate } from 'drizzle-orm/libsql/migrator';
 import { createDbConnection } from './index';
@@ -13,10 +15,13 @@ const main = async () => {
     });
     console.log('Migration complete!');
   } catch (error) {
-    console.error('Migration failed');
-    console.error(error);
+    console.log(error);
   }
-  process.exit(1);
+  process.exit(0);
 };
 
-main();
+main().catch((e) => {
+  console.error('Migration failed');
+  console.error(e);
+  process.exit(1);
+});
