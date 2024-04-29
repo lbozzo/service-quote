@@ -14,6 +14,7 @@ app.get('/random', async (c) => {
   const data = createDbConnection(c.env);
 
   const result = await data.query.quote.findFirst({
+    columns: { authorId: false },
     with: {
       author: true,
     },

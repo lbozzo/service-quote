@@ -4,7 +4,7 @@ import { relations } from 'drizzle-orm';
 export const quote = sqliteTable('quote', {
   id: integer('id').primaryKey({ autoIncrement: true }).unique(),
   quote: text('quote').notNull(),
-  authorId: text('author_id'),
+  authorId: integer('author_id'),
 });
 
 export const author = sqliteTable('author', {
